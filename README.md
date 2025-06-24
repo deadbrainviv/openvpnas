@@ -23,7 +23,7 @@ This repository provides a simple and secure way to deploy an OpenVPN server com
 1. **Clone the Repository:**
 
 ```bash
-git clone https://github.com/yourusername/openvpn-web-admin.git
+git clone https://github.com/deadbrainviv/openvpnas.git
 cd openvpn-web-admin
 ```
 
