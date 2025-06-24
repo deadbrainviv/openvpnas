@@ -24,7 +24,7 @@ This repository provides a simple and secure way to deploy an OpenVPN server com
 
 ```bash
 git clone https://github.com/deadbrainviv/openvpnas.git
-cd openvpn-web-admin
+cd openvpnas
 ```
 
 2. **Edit Admin Credentials:**
