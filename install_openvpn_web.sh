@@ -9,8 +9,10 @@ apt update && apt upgrade -y
 apt install -y curl wget net-tools ufw
 
 # Install OpenVPN Access Server
-wget https://openvpn.net/downloads/openvpn-as-latest-ubuntu-amd64.deb
-dpkg -i openvpn-as-latest-ubuntu-amd64.deb
+wget https://as-repository.openvpn.net/as-repo-public.gpg
+apt-key add as-repo-public.gpg
+echo "deb http://as-repository.openvpn.net/as/debian jammy main" > /etc/apt/sources.list.d/openvpn-as-repo.list
+apt update && apt install openvpn-as -y
 
 # Setup admin password
 /usr/local/openvpn_as/scripts/sacli --user $ADMIN_USER --key "type" --value "user_connect" UserPropPut
