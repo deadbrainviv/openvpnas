@@ -2,17 +2,20 @@
 
 # Variables
 ADMIN_USER="admin"
-ADMIN_PASS="SecureP@ssw0rd" # Change this to a strong password
+ADMIN_PASS="alphaomega@123" # Change this to a strong password
 
 # Update and install prerequisites
 apt update && apt upgrade -y
 apt install -y curl wget net-tools ufw
 
 # Install OpenVPN Access Server
-wget https://as-repository.openvpn.net/as-repo-public.gpg
-apt-key add as-repo-public.gpg
-echo "deb http://as-repository.openvpn.net/as/debian jammy main" > /etc/apt/sources.list.d/openvpn-as-repo.list
-apt update && apt install openvpn-as -y
+sudo apt remove --purge openvpn-as -y
+sudo rm -rf /usr/local/openvpn_as
+sudo find / -type f -name '*.pyc' -delete
+sudo apt update
+sudo su
+bash <(curl -fsS https://packages.openvpn.net/as/install.sh) --yes
+
 
 # Setup admin password
 /usr/local/openvpn_as/scripts/sacli --user $ADMIN_USER --key "type" --value "user_connect" UserPropPut
