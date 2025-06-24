@@ -1,28 +1,62 @@
-Here's a robust and secure shell script that automates installing OpenVPN and deploying a simple web-based administration interface (using the widely-used OpenVPN management platform OpenVPN Access Server):
+# OpenVPN Server with Web Management Interface
 
-Script Overview:
+## Overview
 
-Installs OpenVPN Access Server (with web UI) on Ubuntu.
+This repository provides a simple and secure way to deploy an OpenVPN server complete with a user-friendly web-based administration interface for managing VPN accounts and connections. Suitable for both local Ubuntu installations and cloud environments such as AWS.
 
-Configures the admin user and password.
+## Features
 
-Adjusts firewall settings for accessibility.
+* Automated installation of OpenVPN Access Server
+* Secure web interface for managing VPN users and connections
+* Easy-to-configure administrator credentials
+* Built-in firewall setup with UFW
 
-Suitable for both local and AWS EC2 Ubuntu instances.
+## Installation
 
+### Requirements
+
+* Ubuntu 20.04 LTS or newer
+* Root access or sudo privileges
+
+### Quick Start
+
+1. **Clone the Repository:**
+
+```bash
+git clone https://github.com/deadbrainviv/openvpnas.git
+cd openvpnas
+```
+
+2. **Edit Admin Credentials:**
+   Update the admin credentials (`ADMIN_USER` and `ADMIN_PASS`) in the `install_openvpn_web.sh` script:
+
+```bash
+vim install_openvpn_web.sh
+```
+
+3. **Run the Installation Script:**
+
+```bash
 chmod +x install_openvpn_web.sh
-Run the script with root privileges:
-
 sudo ./install_openvpn_web.sh
-After Installation:
+```
 
-Access your web-based administration panel using:
+## Accessing the Web Interface
 
-https://your_static_ip:943
+After installation, access the administration interface via:
 
-Use the provided admin credentials to log in initially and manage your VPN clients and settings.
+```bash
+https://YOUR_SERVER_IP:943
+```
 
-Security Recommendations:
+Use your configured admin username and password to log in.
 
-Immediately change the ADMIN_PASS in the script to a strong, secure, and unique password before running.
-Ensure your firewall (UFW or AWS Security Groups) restricts access to known trusted IP addresses for increased security.
+## Security Recommendations
+
+* Always use a strong, unique password for admin credentials.
+* Restrict web interface access via firewall or AWS Security Groups to known IP addresses.
+* Regularly update your server packages to apply security patches.
+
+## License
+
+This project is licensed under the MIT License.
